@@ -18,7 +18,7 @@ export function Card(props) {
     return (
         <div className={styles.cardContainer} style={{ background: props.color, color: corTexto() }}>
             <BsFillPeopleFill size="4rem" color={alterarCor()} />
-            <p className={styles.tittleCard}>Connect with our farmers</p>
+            <p className={styles.tittleCard}>Connect with our devs</p>
             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores</p>
         </div>
     );
