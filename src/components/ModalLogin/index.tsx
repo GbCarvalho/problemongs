@@ -9,9 +9,9 @@ export function ModalLogin() {
             <p className={styles.modalDescription}>create a account to start help ongs with they problems</p>
             <p className={styles.modalDescription}>continue with...</p>
             <div className={styles.modalOptionsLogin}>
-                <LoginBoxOptions media="github" />
-                <LoginBoxOptions media="linkedin" />
-                <LoginBoxOptions media="google" />
+                <LoginBoxOptions media="Github" />
+                <LoginBoxOptions media="LinkedIn" />
+                <LoginBoxOptions media="Google" />
             </div>
         </div>
     );

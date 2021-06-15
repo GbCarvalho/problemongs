@@ -6,8 +6,8 @@ export function LoginBoxOptions(props) {
     return (
         <div className={styles.loginBoxContainer}>
             <div className={styles.loginBoxContent}>
-                {props.media === "github" ? <FaGithub size="3.5rem" color="#333333" /> : props.media === "linkedin" ? <FaLinkedin size="3.5rem" color="#333333" /> : <FaGoogle size="3.2rem" color="#333333" />}
-                <span>Github</span>
+                {props.media === "Github" ? <FaGithub size="3.5rem" color="#333333" /> : props.media === "LinkedIn" ? <FaLinkedin size="3.2rem" color="#0E76A8" /> : <FaGoogle size="3.2rem" color="#EA4335" />}
+                <span>{props.media}</span>
             </div>
         </div>
     );
