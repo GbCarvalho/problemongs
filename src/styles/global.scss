@@ -15,8 +15,19 @@
         font-size: 87.5%;
     }
 }
+body{
+    font-family: 'Inter', sans-serif;
+}
 
+button{
+    cursor: pointer;
+}
 :root{
+    --branco: #ffffff;
 
+    --green-500: #5ECC5B;
 
+    --grey-text: #18191F;
+
+    --dark-blue: #0B0D17;
 }

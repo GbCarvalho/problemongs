@@ -1,0 +1,14 @@
+.footerContainer{
+    width: 100%;
+    height: 4rem;
+    background: var(--dark-blue);
+    position: fixed;
+    bottom: 0;
+    padding: 0 16rem;
+
+    .copyText{
+        p{
+            color: var(--branco);
+        }
+    }
+}
