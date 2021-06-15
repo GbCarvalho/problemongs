@@ -1,6 +1,8 @@
 import styles from './styles.module.scss';
 
 import { signIn, signOut, useSession } from 'next-auth/client'
+import React from 'react';
+import { ModalLogin } from '../ModalLogin';
 export function LoginButton() {
     const [session] = useSession();
     return session ? (
@@ -20,6 +22,7 @@ export function LoginButton() {
             >
                 Login
             </button>
+            <ModalLogin />
         </>
 
     );
