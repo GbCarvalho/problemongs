@@ -9,9 +9,11 @@ import "../styles/global.scss";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextAuthProvider session={pageProps.session}>
-      <Header />
-      <Main />
-      <Footer />
+      <div className="pageContent">
+        <Header />
+        <Main />
+        <Footer />
+      </div>
     </NextAuthProvider>
   );
 }
