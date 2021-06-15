@@ -1,14 +1,22 @@
-.footerContainer{
-    width: 100%;
-    height: 4rem;
-    background: var(--dark-blue);
-    position: fixed;
-    bottom: 0;
-    padding: 0 16rem;
+.footerContainer {
+  width: 100%;
+  height: 4rem;
+  background: var(--dark-blue);
+  position: absolute;
+  bottom: 0;
+  padding: 0 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .copyText{
-        p{
-            color: var(--branco);
-        }
+  .copyText {
+    p {
+      color: var(--branco);
+      font-size: 14px;
     }
+  }
+
+  .socialMediaContainer {
+    display: flex;
+  }
 }
