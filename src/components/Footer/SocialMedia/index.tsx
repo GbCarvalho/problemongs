@@ -1,9 +1,15 @@
 import styles from "./styles.module.scss";
 
-export function SocialMedia() {
+import { FaInstagram, FaDribbble, FaTwitter, FaYoutube } from 'react-icons/fa';
+
+export function SocialMedia(props) {
   return (
     <>
-      <button className={styles.socialMedias}></button>
+      <button className={styles.socialMedias}>
+        {
+          props.social === 'instagram' ? <FaInstagram color="#fff" /> : props.social === 'dribbble' ? <FaDribbble color="#fff" /> : props.social === 'twitter' ? <FaTwitter color="#fff" /> : <FaYoutube color="#fff" />
+        }
+      </button>
     </>
   );
 }

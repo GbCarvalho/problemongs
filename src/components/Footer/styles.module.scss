@@ -6,17 +6,23 @@
   bottom: 0;
   padding: 0 16rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  
 
-  .copyText {
-    p {
-      color: var(--branco);
-      font-size: 14px;
-    }
-  }
-
-  .socialMediaContainer {
+  .footerContent{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1300px;
+    .copyText {
+      p {
+        color: var(--branco);
+        font-size: 14px;
+      }
+    }
+
+    .socialMediaContainer {
+      display: flex;
+    }
   }
 }

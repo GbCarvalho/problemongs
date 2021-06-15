@@ -1,0 +1,12 @@
+.conteudoContainer{
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+
+    img{
+        position: absolute;
+        top: -140px;
+        right: -400px;
+        z-index: 0;
+    }
+}
