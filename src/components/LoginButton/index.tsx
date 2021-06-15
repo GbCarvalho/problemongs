@@ -1,9 +1,11 @@
 import styles from './styles.module.scss';
 
 import { signIn, signOut, useSession } from 'next-auth/client'
-import React from 'react';
+import React, { useState } from 'react';
 import { ModalLogin } from '../ModalLogin';
 export function LoginButton() {
+
+    const [showModal, setShowModal] = useState(false);
     const [session] = useSession();
     return session ? (
         <>
@@ -18,11 +20,11 @@ export function LoginButton() {
         <>
             <button className={styles.loginButton}
                 type="button"
-                onClick={() => signIn('linkedin')}
+                onClick={() => setShowModal(!showModal)}
             >
                 Login
             </button>
-            <ModalLogin />
+            {showModal ? <ModalLogin /> : null}
         </>
 
     );
