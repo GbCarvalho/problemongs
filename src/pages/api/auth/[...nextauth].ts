@@ -7,6 +7,7 @@ export default NextAuth({
     Providers.LinkedIn({
       clientId: process.env.LINKEDIN_CLIENT_ID,
       clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
+      scope: "r_emailaddress r_liteprofile"
     }),
   ],
   jwt: {
@@ -14,18 +15,21 @@ export default NextAuth({
   },
 
   callbacks: {
-    async session(session) {
-      try {
-        return { ...session };
-      } catch {
-        return { ...session };
-      }
+    async session(session, token) {
+      // Add property to session, like an access_token from a provider.
+      session.accessToken = token.accessToken
+      return session
     },
     async signIn(user, account, profile) {
-      try {
-        return true;
-      } catch {
-        return false;
+
+      const isAllowedToSignIn = true
+      if (isAllowedToSignIn) {
+        return true
+      } else {
+        // Return false to display a default error message
+        return false
+        // Or you can return a URL to redirect to:
+        // return '/unauthorized'
       }
     },
   },
