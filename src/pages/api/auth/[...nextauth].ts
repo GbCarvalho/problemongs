@@ -23,6 +23,15 @@ export default NextAuth({
     },
     async signIn(user, account, profile) {
       try {
+        //TODO: Arrumar o display da profile Pic
+        const profileResponse = await axios.get(
+          "https://api.linkedin.com/v2/me?projection=(profilePicture(displayImage~:playableStreams))",
+          {
+            headers: {
+              Authorization: `Bearer ${account.accessToken}`,
+            },
+          }
+        );
 
         const emailResponse = await axios.get(
           "https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))",
@@ -34,8 +43,11 @@ export default NextAuth({
         );
 
         const email = emailResponse.data.elements[0]["handle~"].emailAddress;
+        const profilePicture =
+          profileResponse.data.profilePicture["displayImage~"].elements[0].data;
 
         console.log(email);
+        console.log(profilePicture);
 
         const isAllowedToSignIn = true;
 
