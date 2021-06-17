@@ -19,6 +19,7 @@ export default function ProblemsList({ problems }: ProblemsProps) {
       <div className={styles.listProblemContainer}>
         {problems.map((problem) => (
           <ProblemCard
+            key={problem.slug}
             title={problem.title}
             description={problem.excerpt}
             slug={problem.slug}
