@@ -17,7 +17,7 @@ interface Problem {
   slug: string;
   title: string;
   excerpt: string;
-  html: HTMLAllCollection;
+  html: string;
   primary_author: Author;
 }
 
@@ -76,8 +76,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       notFound: true,
     };
   }
-
-  console.log(problem);
 
   return {
     props: { problem },
