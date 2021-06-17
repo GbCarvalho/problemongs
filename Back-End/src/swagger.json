@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Problemongs Documentation",
+    "description": "This is an API Rest",
+    "version": "1.0.0",
+    "contact": {
+      "email": "problemongs@gmail.com"
+    }
+  },
+  "paths": {
+    "/projects": {
+      "post": {
+        "tags": [
+          "Project"
+        ],
+        "summary": "Create a project",
+        "description": "Create a new project",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "userId": {
+                    "type": "string"
+                  },
+                  "ongProblemId": {
+                    "type": "string"
+                  },
+                  "github": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Project already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "List all projects",
+        "description": "List all projects",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "ongProblemId": {
+                      "type": "string"
+                    },
+                    "github": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
