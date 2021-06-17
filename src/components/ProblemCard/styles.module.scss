@@ -4,16 +4,23 @@
   border-radius: 8px;
   padding: 1.2rem 1.8rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
 
   h1 {
     font-size: 1.8rem;
     color: var(--green-500);
   }
 
+  p {
+    color: var(--green-500);
+  }
+
   .problemDescription {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
     .problemText {

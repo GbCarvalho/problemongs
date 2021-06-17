@@ -11,16 +11,14 @@ interface ProblemCardProps {
 export function ProblemCard({ title, description, slug }: ProblemCardProps) {
   return (
     <div className={styles.problemCardContainer}>
-      <h1>{title}</h1>
       <div className={styles.problemDescription}>
+        <h1>{title}</h1>
         <p className={styles.problemText}>{description}</p>
-        <div>
-          <p className={styles.problemLinkSolve}>
-            Visualizar Problema{" "}
-            <FiArrowRight size="1.5rem" className={styles.arrowIcon} />
-          </p>
-        </div>
       </div>
+      <p className={styles.problemLinkSolve}>
+        Visualizar Problema{" "}
+        <FiArrowRight size="1.5rem" className={styles.arrowIcon} />
+      </p>
     </div>
   );
 }
