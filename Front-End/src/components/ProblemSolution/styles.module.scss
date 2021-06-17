@@ -1,0 +1,60 @@
+.problemSolutionContainer{
+    width:100%;
+    background-color: var(--green-500);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    color: var(--branco);
+    margin-bottom: 1rem;
+
+    h2{
+        margin-bottom: 1rem;
+    }
+    p{
+        text-align: justify;
+        font-weight: 300;
+    }
+
+    .problemGrupoContainer{
+        display: flex;
+        flex-direction:column;
+        margin-top:1.5rem;
+
+        p{
+            font-weight: bold;
+            margin-bottom: .5rem;
+        }
+
+        .problemGrupoContainerIcons{
+            display: flex;
+            width: 100%;
+            justify-content:space-between;
+            align-items:flex-end;
+
+            .usersIconsBox{
+                display: flex;
+            }
+
+            .problemLinkSolve{
+                margin-top: .5rem;
+                font-weight: bold;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                
+                .arrowIcon{
+                    transition: all .2s;
+                    margin-left: .6rem;
+                }
+                .arrowIcon:hover{
+                    transform:translateX(10px);
+                }
+            }
+            .problemLinkSolve:hover{
+                .arrowIcon{
+                    transform:translateX(10px);
+                }
+            }
+        }
+    }
+}

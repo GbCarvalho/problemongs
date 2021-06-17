@@ -1,0 +1,30 @@
+.objectivesContainer{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+
+    .objectivesTitulo{
+        width:40rem;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        h2{
+            font-size: 36px;
+            margin-bottom: .8rem;
+        }
+        p{
+            text-align:center;
+            color: var(--greylight-text);
+            line-height: 32px;
+        }
+    }
+
+    .cardsContainer{
+        margin-top: 3rem;
+        display:flex;
+    }
+}
