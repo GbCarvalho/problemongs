@@ -14,6 +14,29 @@
       p {
         text-align: justify;
       }
+      a{
+        text-decoration: none;
+        color: var(--green-500);
+        font-weight: bold;
+      }
+      img{
+        width:1300px;
+        height:auto;
+        margin: 1rem 0;
+      }
+      h2{
+        margin: 1rem 0;
+      }
+      figcaption{
+        text-align: center;
+        color:var(--greylightest-text);
+        margin-bottom: 1rem;
+      }
+      ul{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 2.5rem;
+      }
     }
 
     .ongBlock {
