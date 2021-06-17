@@ -1,4 +1,4 @@
-import styles from "./styles.module.scss";
+import styles from "./problem.module.scss";
 
 import { IoDocumentText } from "react-icons/io5";
 import { ProblemSolution } from "./../../components/ProblemSolution";

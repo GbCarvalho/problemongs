@@ -1,0 +1,76 @@
+.problemPageContainer {
+  width: 1300px;
+  margin: 0 auto;
+
+  .problemPageContent {
+    margin: 5rem 0;
+
+    .problemPageDescription {
+      h1 {
+        font-weight: 800;
+        font-size: 42px;
+        margin-bottom: 1rem;
+      }
+      p {
+        text-align: justify;
+      }
+    }
+
+    .ongBlock {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 1rem;
+      margin-top: 2rem;
+
+      .ongTexts {
+        margin-right: 4rem;
+
+        p:first-child {
+          font-weight: bold;
+          font-size: 18px;
+          color: var(--grey-text);
+          margin-bottom: 0.5rem;
+        }
+
+        p:last-child {
+          font-weight: normal;
+          font-size: 15px;
+          color: var(--greylightest-text);
+        }
+      }
+
+      .ongPicture {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 2rem;
+      }
+    }
+
+    .newSolutionButton {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 5rem;
+      margin-bottom: 1rem;
+
+      button {
+        border: none;
+        background: var(--green-500);
+        display: flex;
+        align-items: center;
+        color: var(--branco);
+        padding: 0.8rem 2rem;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+
+        .documentIcon {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
