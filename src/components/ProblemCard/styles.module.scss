@@ -14,8 +14,29 @@
     color: var(--green-500);
   }
 
-  p {
+  a {
+    font-size: 18px;
+    font-weight: bold;
     color: var(--green-500);
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    .arrowIcon {
+      transition: all 0.2s;
+      margin-left: 0.6rem;
+    }
+    .arrowIcon:hover {
+      transform: translateX(10px);
+    }
+
+    &:hover {
+      .arrowIcon {
+        transform: translateX(10px);
+      }
+    }
   }
 
   .problemDescription {

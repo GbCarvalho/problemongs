@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "./styles.module.scss";
 
 import { FiArrowRight } from "react-icons/fi";
@@ -15,10 +17,12 @@ export function ProblemCard({ title, description, slug }: ProblemCardProps) {
         <h1>{title}</h1>
         <p className={styles.problemText}>{description}</p>
       </div>
-      <p className={styles.problemLinkSolve}>
-        Visualizar Problema{" "}
-        <FiArrowRight size="1.5rem" className={styles.arrowIcon} />
-      </p>
+      <Link href={`/problems/${slug}`}>
+        <a className={styles.problemLinkSolve}>
+          Visualizar Problema{" "}
+          <FiArrowRight size="1.5rem" className={styles.arrowIcon} />
+        </a>
+      </Link>
     </div>
   );
 }
