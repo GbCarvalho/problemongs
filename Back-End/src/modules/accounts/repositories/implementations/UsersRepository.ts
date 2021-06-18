@@ -11,12 +11,10 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(User);
   }
 
-  async create({ name, email, password, id, avatar }: ICreateUserDTO): Promise<void> {
+  async create({ id, name, email  }: ICreateUserDTO): Promise<void> {
     const user = this.repository.create({
       name,
       email,
-      password,
-      avatar,
       id
     });
 
@@ -34,6 +32,7 @@ class UsersRepository implements IUsersRepository {
 
     return user;
   }
+
 }
 
 export { UsersRepository }

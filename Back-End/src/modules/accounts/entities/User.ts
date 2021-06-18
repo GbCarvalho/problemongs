@@ -10,13 +10,7 @@ class User {
   name: string;
 
   @Column()
-  password: string;
-
-  @Column()
   email: string;
-
-  @Column()
-  avatar: string;
 
   @CreateDateColumn()
   created_at: Date;

@@ -11,7 +11,6 @@ class CreateUserController {
     await createUserUseCase.execute({
       name,
       email,
-      password
     });
 
     return response.status(201).send();
