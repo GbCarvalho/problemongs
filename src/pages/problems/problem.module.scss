@@ -4,8 +4,20 @@
 
   .problemPageContent {
     margin: 5rem 0;
+    max-width: 1300px;
+
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
     .problemPageDescription {
+      max-width: 1120px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
       h1 {
         font-weight: 800;
         font-size: 42px;
@@ -14,25 +26,25 @@
       p {
         text-align: justify;
       }
-      a{
+      a {
         text-decoration: none;
         color: var(--green-500);
         font-weight: bold;
       }
-      img{
-        width:1300px;
-        height:auto;
+      img {
+        width: 1120px;
+        height: auto;
         margin: 1rem 0;
       }
-      h2{
+      h2 {
         margin: 1rem 0;
       }
-      figcaption{
+      figcaption {
         text-align: center;
-        color:var(--greylightest-text);
+        color: var(--greylightest-text);
         margin-bottom: 1rem;
       }
-      ul{
+      ul {
         margin-top: 1rem;
         margin-bottom: 1rem;
         margin-left: 2.5rem;
