@@ -7,17 +7,17 @@ import { IProjectsRepository } from "../../repositories/IProjectsRepository";
 class CreateProjectUseCase {
   constructor(
     @inject('ProjectsRepository')
-    private usersRepository: IProjectsRepository
+    private projectsRepository: IProjectsRepository
   ) { }
 
   async execute({ name, userId ,ongProblemId ,description ,github}: ICreateProjectDTO): Promise<void> {
-    const projectAlreadyExists = (await this.usersRepository.findByName(name))[0].ongProblemId === ongProblemId;
+    const projectAlreadyExists = (await this.projectsRepository.findByName(name))[0].ongProblemId === ongProblemId;
 
     if (projectAlreadyExists) {
       throw new AppError('Project already exists!');
     }
 
-    await this.usersRepository.create({
+    await this.projectsRepository.create({
       name,
       userId,
       ongProblemId,

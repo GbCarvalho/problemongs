@@ -17,7 +17,7 @@ export class CreateProjects1623967783379 implements MigrationInterface {
               type: 'varchar'
             },
             {
-              name: 'userId',
+              name: 'users',
               type: 'varchar'
             },
             {
