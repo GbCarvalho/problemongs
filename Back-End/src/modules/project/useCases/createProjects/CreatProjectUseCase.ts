@@ -14,7 +14,7 @@ class CreateProjectUseCase {
     const projectAlreadyExists = (await this.projectsRepository.findByName(name))[0]?.ongProblemId === ongProblemId;
 
     if (projectAlreadyExists) {
-      throw new AppError('Project already exists!');
+      throw new AppError('Project already exists for this Ong!');
     }
 
     await this.projectsRepository.create({

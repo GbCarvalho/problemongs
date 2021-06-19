@@ -17,11 +17,6 @@ export class CreateProjects1623967783379 implements MigrationInterface {
               type: 'varchar'
             },
             {
-              name: 'usersId',
-              type: 'varchar',
-
-            },
-            {
               name: 'ongProblemId',
               type: 'varchar'
             },
@@ -34,10 +29,6 @@ export class CreateProjects1623967783379 implements MigrationInterface {
               type: 'varchar'
             },
             {
-              name: 'email',
-              type: 'varchar'
-            },
-            {
               name: 'updated_at',
               type: 'timestamp',
               default: 'now()'
@@ -47,7 +38,7 @@ export class CreateProjects1623967783379 implements MigrationInterface {
       );
 
       await queryRunner.createTable(new Table({
-        name: 'projects_users_users',
+        name: 'projects_users_id_users',
         columns: [
             {
                  name: 'usersId',

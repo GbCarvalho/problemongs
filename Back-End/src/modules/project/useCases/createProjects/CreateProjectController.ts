@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { User } from "../../../accounts/entities/User";
 import { CreateProjectUseCase } from "./CreatProjectUseCase";
 
 class CreateProjectController {
@@ -8,7 +7,6 @@ class CreateProjectController {
     const { name, userId, ongProblemId, description, github } = request.body;
 
     const createProjectUseCase = container.resolve(CreateProjectUseCase);
-
 
 
     await createProjectUseCase.execute({
