@@ -1,0 +1,79 @@
+.conteudoContainer{
+    width: 1300px;
+    margin: 0 auto;
+    position: relative;
+
+    img{
+        position: absolute;
+        top: -140px;
+        right: -400px;
+        z-index: 0;
+    }
+
+    .mainTittle{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        h1{
+            display: inline-block;
+            margin-top:50%;
+            transform: translateY(-26rem);
+            font-size:48px;
+            width: 40.1rem;     
+            text-align: center;   
+        }
+
+        .buttonsContainer{
+            width: 40.1rem;
+            margin-top:-22rem;
+            
+            button{
+                width:48%;
+                border-radius: 6px;
+                font-weight: bold;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .solveProblemButton{
+                height: 3.5rem;
+                border: none;
+                background: var(--green-500);
+                color: var(--branco);
+                margin-right: .7rem;
+            }
+
+            .purpouseProblem{
+                height: 3.5rem;
+                border: 1px solid var(--green-500);
+                background: var(--branco);
+                color: var(--green-500);
+                margin-right: .7rem;
+            }
+        }
+    }
+
+    .arrowDown{
+        display: flex;
+        width:100%;
+        align-items: center;
+        justify-content:center;
+        margin-top:20rem;
+        animation-name:up-and-down;
+        animation-duration: 2s;
+        animation-iteration-count:infinite;
+    }
+
+    @keyframes up-and-down{
+        0%{
+            transform: translateY(0);
+        }
+        50%{
+            transform: translateY(22px);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
+}
