@@ -25,7 +25,7 @@ class ProjectsRepository implements IProjectsRepository {
       name, description, github, ongProblemId,
     });
 
-    project.users=[get_user];
+    project.usersId=[get_user];
 
     await this.repository.save(project);
   }
@@ -36,7 +36,7 @@ class ProjectsRepository implements IProjectsRepository {
 
     const project = await this.repository.findOne({id:projectId});
 
-    project.users.push(user);
+    project.usersId.push(user);
 
     this.repository.create(project)
 

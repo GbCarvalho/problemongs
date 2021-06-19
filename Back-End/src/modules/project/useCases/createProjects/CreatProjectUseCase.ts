@@ -11,7 +11,7 @@ class CreateProjectUseCase {
   ) { }
 
   async execute({ name, userId ,ongProblemId ,description ,github}: ICreateProjectDTO): Promise<void> {
-    const projectAlreadyExists = (await this.projectsRepository.findByName(name))[0].ongProblemId === ongProblemId;
+    const projectAlreadyExists = (await this.projectsRepository.findByName(name))[0]?.ongProblemId === ongProblemId;
 
     if (projectAlreadyExists) {
       throw new AppError('Project already exists!');
