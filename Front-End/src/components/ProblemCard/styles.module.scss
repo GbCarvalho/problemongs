@@ -1,0 +1,78 @@
+.problemCardContainer {
+  width: 100%;
+  border: 1px solid var(--green-500);
+  border-radius: 8px;
+  padding: 1.2rem 1.8rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 1.8rem;
+    color: var(--green-500);
+  }
+
+  a {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--green-500);
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    .arrowIcon {
+      transition: all 0.2s;
+      margin-left: 0.6rem;
+    }
+    .arrowIcon:hover {
+      transform: translateX(10px);
+    }
+
+    &:hover {
+      .arrowIcon {
+        transform: translateX(10px);
+      }
+    }
+  }
+
+  .problemDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .problemText {
+      width: 58rem;
+      text-align: justify;
+      color: var(--greylightest-text);
+      margin-top: 0.5rem;
+    }
+
+    .problemLinkSolve {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      font-size: 18px;
+      color: var(--green-500);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .arrowIcon {
+        transition: all 0.2s;
+        margin-left: 0.6rem;
+      }
+      .arrowIcon:hover {
+        transform: translateX(10px);
+      }
+    }
+
+    .problemLinkSolve:hover {
+      .arrowIcon {
+        transform: translateX(10px);
+      }
+    }
+  }
+}
