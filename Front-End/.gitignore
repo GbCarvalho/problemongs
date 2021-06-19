@@ -6,7 +6,6 @@
 /Front-End/node_modules
 /Front-End/.pnp
 /Front-End.pnp.js
-/Back-End/.vscode
 
 # testing
 /Front-End/coverage
@@ -19,22 +18,22 @@
 /Front-End/build
 
 # misc
-/Front-End/.DS_Store
-/Front-End/*.pem
+/Front-End.DS_Store
+/Front-End*.pem
 
 # debug
-/Front-End/npm-debug.log*
-/Front-End/yarn-debug.log*
-/Front-End/yarn-error.log*
+/Front-Endnpm-debug.log*
+/Front-Endyarn-debug.log*
+/Front-Endyarn-error.log*
 
 # local env files
-/Front-End/.env.local
-/Front-End/.env.development.local
-/Front-End/.env.test.local
-/Front-End/.env.production.local
+/Front-End.env.local
+/Front-End.env.development.local
+/Front-End.env.test.local
+/Front-End.env.production.local
 
 # vercel
-/Front-End/.vercel
+/Front-End.vercel
 
 
 
@@ -44,9 +43,8 @@
 
 # dependencies
 /Back-End/node_modules
-/Back-End/.vscode
-/Back-End/tmp/*
-
 
 # production
 /Back-End/dist
+
+
