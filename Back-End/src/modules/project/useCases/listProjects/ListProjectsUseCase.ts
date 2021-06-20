@@ -5,16 +5,15 @@ import { IProjectsRepository } from "../../repositories/IProjectsRepository";
 @injectable()
 class ListProjectsUseCase {
   constructor(
-    @inject('ProjectsRepository')
+    @inject("ProjectsRepository")
     private projectsRepository: IProjectsRepository
-  ) { }
+  ) {}
 
-  async execute(): Promise<Project[]> {
-
-    const projectsList = await this.projectsRepository.list();
+  async execute(userId?: string): Promise<Project[]> {
+    const projectsList = await this.projectsRepository.list(userId);
 
     return projectsList;
   }
 }
 
-export { ListProjectsUseCase }
+export { ListProjectsUseCase };
