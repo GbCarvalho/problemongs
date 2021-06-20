@@ -9,7 +9,7 @@ const createProjectController = new CreateProjectController();
 const listProjectsController = new ListProjectsController();
 const addNewColaborator = new AddColaboratorController();
 
-projectsRoutes.use(ensureAuthenticated);
+//projectsRoutes.use(ensureAuthenticated);
 projectsRoutes.post('/', createProjectController.handle);
 projectsRoutes.get('/', listProjectsController.handle);
 projectsRoutes.patch('/', addNewColaborator.handle);

@@ -1,4 +1,5 @@
 import { getRepository, Repository } from "typeorm";
+import { AppError } from "../../../../errors/AppErrors";
 import { User } from "../../../accounts/entities/User";
 import { IAddColaboratorDTO } from "../../dtos/IAddColaboratorDTO";
 import { ICreateProjectDTO } from "../../dtos/ICreateProjectDTO";
@@ -21,11 +22,14 @@ class ProjectsRepository implements IProjectsRepository {
 
     const get_user = await this.userRepository.findOne({id: userId});
 
-    const project = this.repository.create({
-      name, description, github, ongProblemId,
-    });
 
-    project.users=[get_user];
+    if (!get_user.id) {
+      throw new AppError('UserId does not exists!');
+    }
+
+    const project = this.repository.create({
+      name, description, github, ongProblemId, usersId: [get_user]
+    });
 
     await this.repository.save(project);
   }
@@ -36,7 +40,7 @@ class ProjectsRepository implements IProjectsRepository {
 
     const project = await this.repository.findOne({id:projectId});
 
-    project.users.push(user);
+    project.usersId.push(user);
 
     this.repository.create(project)
 

@@ -17,10 +17,6 @@ export class CreateProjects1623967783379 implements MigrationInterface {
               type: 'varchar'
             },
             {
-              name: 'users',
-              type: 'varchar'
-            },
-            {
               name: 'ongProblemId',
               type: 'varchar'
             },
@@ -33,20 +29,47 @@ export class CreateProjects1623967783379 implements MigrationInterface {
               type: 'varchar'
             },
             {
-              name: 'email',
-              type: 'varchar'
-            },
-            {
               name: 'updated_at',
               type: 'timestamp',
               default: 'now()'
             }
           ]
         })
-      )
+      );
+
+      await queryRunner.createTable(new Table({
+        name: 'projects_users_id_users',
+        columns: [
+            {
+                 name: 'usersId',
+                 type: 'uuid',
+                 isPrimary: true,
+            },
+            {
+                 name: 'projectsId',
+                 type: 'uuid',
+                 isPrimary: true,
+            },
+        ],
+        foreignKeys: [
+            {
+                columnNames: ['usersId'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'users',
+            },
+            {
+                columnNames: ['projectsId'],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'projects',
+            },
+        ],
+      }))
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+
+      await queryRunner.dropTable("projects_users_users");
+      await queryRunner.dropTable("projects");
     }
 
 }

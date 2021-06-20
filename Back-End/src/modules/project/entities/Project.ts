@@ -14,7 +14,7 @@ class Project {
 
   @ManyToMany(() => User)
   @JoinTable()
-  users: User[];
+  usersId: User[];
 
   @Column()
   ongProblemId: string;

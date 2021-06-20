@@ -8,7 +8,7 @@ const userRoutes = Router();
 const createUserController = new CreateUserController();
 
 
-userRoutes.use(ensureAuthenticated);
+//userRoutes.use(ensureAuthenticated);
 userRoutes.post('/', createUserController.handle);
 
 export { userRoutes }

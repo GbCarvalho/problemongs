@@ -15,7 +15,7 @@ class AddColaboratorUseCase {
 
     const project = await this.projectsRepository.findById(projectId);
 
-    const userAlreadyInProject = project.users.find((fuser=>{return fuser.id === userId}));
+    const userAlreadyInProject = project.usersId.find((fuser=>{return fuser.id === userId}));
 
     if (userAlreadyInProject) {
       throw new AppError('User already in this project!');
