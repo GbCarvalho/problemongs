@@ -12,9 +12,13 @@
         justify-content: space-between;
         width: 1300px;
         .logoContainer{
-            h1{
-                span{
-                    color: var(--green-500);
+            a{
+                text-decoration: none;
+                color: var(--black);
+                h1{
+                    span{
+                        color: var(--green-500);
+                    }
                 }
             }
         }
