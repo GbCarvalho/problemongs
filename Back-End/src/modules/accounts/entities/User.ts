@@ -1,10 +1,20 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
-import { v4 as uuid } from 'uuid'
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import {
+  adjectives,
+  animals,
+  colors,
+  names,
+  uniqueNamesGenerator,
+} from "unique-names-generator";
+import { v4 as uuid } from "uuid";
 
-@Entity('users')
+@Entity("users")
 class User {
   @PrimaryColumn()
   id: string;
+
+  @Column()
+  username: string;
 
   @Column()
   name: string;
@@ -19,7 +29,14 @@ class User {
     if (!this.id) {
       this.id = uuid();
     }
+
+    if (!this.username) {
+      this.username = uniqueNamesGenerator({
+        dictionaries: [adjectives, colors, names],
+        separator: "-",
+      });
+    }
   }
 }
 
-export { User }
+export { User };

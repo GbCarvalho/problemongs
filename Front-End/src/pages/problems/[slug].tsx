@@ -58,17 +58,7 @@ export default function ProblemPage({ problem }: ProblemPageProps) {
   );
 }
 
-export async function getStaticPaths() {
-  const problems = await getPosts();
-
-  const paths = problems.map((post) => ({
-    params: { slug: post.slug },
-  }));
-
-  return { paths, fallback: false };
-}
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const problem = await getSinglePost(context.params.slug);
 
   if (!problem) {
