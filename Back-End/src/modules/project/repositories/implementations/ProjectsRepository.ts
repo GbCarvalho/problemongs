@@ -18,14 +18,17 @@ class ProjectsRepository implements IProjectsRepository {
   async create({
     name,
     description,
-    userId,
+    usersId,
     ongProblemId,
     github,
   }: ICreateProjectDTO): Promise<void> {
-    const get_user = await this.userRepository.findOne({ id: userId });
+    const get_users = await this.userRepository.findByIds(usersId);
 
-    if (!get_user.id) {
-      throw new AppError("UserId does not exists!");
+    if (get_users.length !== usersId.length) {
+      const invalidUsers = get_users.filter((user) => {
+        return !usersId.includes(user.id);
+      });
+      throw new AppError(`Can't find users ${invalidUsers}!`);
     }
 
     const project = this.repository.create({
@@ -33,7 +36,7 @@ class ProjectsRepository implements IProjectsRepository {
       description,
       github,
       ongProblemId,
-      usersId: [get_user],
+      usersId: get_users,
     });
 
     await this.repository.save(project);
@@ -72,16 +75,26 @@ class ProjectsRepository implements IProjectsRepository {
     return project;
   }
 
-  async list(userId?: string): Promise<Project[]> {
-    const projects = (
-      await this.repository.find({
-        relations: ["usersId"],
-      })
-    ).filter((project) => {
-      return project.usersId.map((user) => {
-        return user.id === userId;
-      });
+  async list(userId?: string, ongProblemId?: string): Promise<Project[]> {
+    var projects = await this.repository.find({
+      relations: ["usersId"],
     });
+
+    if (userId) {
+      projects = projects.filter((proj) => {
+        return proj.usersId
+          .map((p) => {
+            return p.id;
+          })
+          .includes(userId);
+      });
+    }
+
+    if (ongProblemId) {
+      projects = projects.filter((proj) => {
+        return proj.ongProblemId === ongProblemId;
+      });
+    }
 
     return projects;
   }

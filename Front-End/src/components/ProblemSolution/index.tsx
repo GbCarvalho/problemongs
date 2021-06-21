@@ -1,25 +1,48 @@
 import styles from "./styles.module.scss";
 
-import { UserIcon } from './UserIcon';
-import { FiArrowRight } from 'react-icons/fi';
+import { UserIcon } from "./UserIcon";
+import { FiArrowRight } from "react-icons/fi";
+import Link from "next/link";
 
-export function ProblemSolution() {
-    return (
-        <div className={styles.problemSolutionContainer}>
-            <h2>Solução 1</h2>
-            <p>Enim proin ut fermentum lacus. Et consequat consequat quis eros vel tortor elit. Vestibulum, vestibulum convallis congue tortor elementum vitae egestas feugiat consectetur. Facilisis orci consectetur convallis tempor pellentesque sem. Dignissim ut nunc, cursus et diam. Sit accumsan a eu ullamcorper convallis sed. Facilisis orci consectetur convallis tempor pellentesque sem. Dignissim ut nunc, cursus et diam. Sit accumsan a eu ullamcorper convallis sed. </p>
-            <div className={styles.problemGrupoContainer}>
-                <p>Grupo</p>
-                <div className={styles.problemGrupoContainerIcons}>
-                    <div className={styles.usersIconsBox}>
-                        <UserIcon />
-                        <UserIcon />
-                        <UserIcon />
-                        <UserIcon />
-                    </div>
-                    <p className={styles.problemLinkSolve}>Visualizar Problema <FiArrowRight size="1.5rem" className={styles.arrowIcon} /></p>
-                </div>
-            </div>
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+interface ProblemSolutionProps {
+  title: string;
+  description: string;
+  members: User[];
+  link: string;
+}
+
+export function ProblemSolution({
+  title,
+  description,
+  members,
+  link,
+}: ProblemSolutionProps) {
+  return (
+    <div className={styles.problemSolutionContainer}>
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <div className={styles.problemGrupoContainer}>
+        <p>Grupo</p>
+        <div className={styles.problemGrupoContainerIcons}>
+          <div className={styles.usersIconsBox}>
+            {members.map((member) => (
+              <UserIcon name={member.name} />
+            ))}
+          </div>
+          <Link href={link}>
+            <p className={styles.problemLinkSolve}>
+              Visualizar Problema{" "}
+              <FiArrowRight size="1.5rem" className={styles.arrowIcon} />
+            </p>
+          </Link>
         </div>
-    );
+      </div>
+    </div>
+  );
 }

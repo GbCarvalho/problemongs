@@ -6,25 +6,47 @@ import { IProjectsRepository } from "../../repositories/IProjectsRepository";
 @injectable()
 class CreateProjectUseCase {
   constructor(
-    @inject('ProjectsRepository')
+    @inject("ProjectsRepository")
     private projectsRepository: IProjectsRepository
-  ) { }
+  ) {}
 
-  async execute({ name, userId ,ongProblemId ,description ,github}: ICreateProjectDTO): Promise<void> {
-    const projectAlreadyExists = (await this.projectsRepository.findByName(name))[0]?.ongProblemId === ongProblemId;
+  async execute({
+    name,
+    usersId,
+    ongProblemId,
+    description,
+    github,
+  }: ICreateProjectDTO): Promise<void> {
+    const projects = await await this.projectsRepository.findByName(name);
+
+    const filteredProjects = projects.filter((proj) => {
+      return proj.ongProblemId === ongProblemId;
+    });
+
+    const projectAlreadyExists = filteredProjects.length !== 0;
+
+    console.log(projects);
 
     if (projectAlreadyExists) {
-      throw new AppError('Project already exists for this Ong!');
+      throw new AppError("Project name already exists for this Ong!");
+    }
+
+    if (!name) {
+      throw new AppError("Project must have a name");
+    }
+
+    if (!usersId.length) {
+      throw new AppError("No valid amount of users selected for this project");
     }
 
     await this.projectsRepository.create({
       name,
-      userId,
+      usersId,
       ongProblemId,
       description,
-      github
+      github,
     });
   }
 }
 
-export { CreateProjectUseCase }
+export { CreateProjectUseCase };

@@ -20,6 +20,11 @@ class AddColaboratorUseCase {
     if (userAlreadyInProject) {
       throw new AppError("User already in this project!");
     }
+
+    if (!project) {
+      throw new AppError("Invaid Project Id");
+    }
+
     await this.projectsRepository.addUser({ userId, projectId });
   }
 }

@@ -4,21 +4,20 @@ import { CreateProjectUseCase } from "./CreatProjectUseCase";
 
 class CreateProjectController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name, userId, ongProblemId, description, github } = request.body;
+    const { name, usersId, ongProblemId, description, github } = request.body;
 
     const createProjectUseCase = container.resolve(CreateProjectUseCase);
 
-
     await createProjectUseCase.execute({
       name,
-      userId,
+      usersId,
       ongProblemId,
       description,
-      github
+      github,
     });
 
     return response.status(201).send();
   }
 }
 
-export { CreateProjectController }
+export { CreateProjectController };

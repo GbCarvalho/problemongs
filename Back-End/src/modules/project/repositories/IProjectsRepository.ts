@@ -5,7 +5,7 @@ import { Project } from "../entities/Project";
 interface IProjectsRepository {
   create(data: ICreateProjectDTO): Promise<void>;
   addUser(addUser: IAddColaboratorDTO): Promise<void>;
-  list(userId?: string): Promise<Project[]>;
+  list(userId?: string, ongProblemId?: string): Promise<Project[]>;
   findByName(name: string): Promise<Project[]>;
   findById(id: string): Promise<Project>;
 }

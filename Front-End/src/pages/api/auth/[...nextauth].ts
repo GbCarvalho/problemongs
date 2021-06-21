@@ -1,8 +1,6 @@
 import axios from "axios";
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
-import mongoConnect from '../../../services/mongodb'
-import User from "../../../models/User";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -15,12 +13,12 @@ export default NextAuth({
     Providers.GitHub({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
-      scope: 'read:user'
+      scope: "read:user",
     }),
     Providers.Google({
       clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET
-    })
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
   ],
   jwt: {
     signingKey: process.env.SIGNING_KEY,
@@ -34,10 +32,8 @@ export default NextAuth({
     },
 
     async signIn(user, account) {
-
-      if(account.provider === 'linkedin'){
-        
-        try{
+      if (account.provider === "linkedin") {
+        try {
           const emailResponse = await axios.get(
             "https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))",
             {
@@ -47,34 +43,27 @@ export default NextAuth({
             }
           );
 
-          if(!user.email){
+          if (!user.email) {
             user.email = emailResponse.data.elements[0]["handle~"].emailAddress;
           }
-  
-        }catch(err){
+        } catch (err) {
           console.error(err);
           return false;
         }
-
       }
 
-      try{
+      try {
+        const response = await axios.post(`${process.env.MY_API_URI}/users`, {
+          email: user.email,
+          name: user.name,
+        });
 
-          await mongoConnect();
+        if (response.status === 200) {
+          return true;
+        }
 
-          const oldUser = await User.findOne({email:user.email}).exec();
-    
-          if(!oldUser){
-            const newUser = new User({
-              name: user.name,
-              email: user.email,
-            });
-            await newUser.save();
-            
-          }
-        return true;
-
-      }catch(err){
+        return false;
+      } catch (err) {
         console.error(err);
         return false;
       }
