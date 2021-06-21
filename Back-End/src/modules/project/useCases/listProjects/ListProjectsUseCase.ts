@@ -10,7 +10,7 @@ class ListProjectsUseCase {
   ) {}
 
   async execute(userId?: string, ongProblemId?: string): Promise<Project[]> {
-    const projectsList = await this.projectsRepository.list(userId);
+    const projectsList = await this.projectsRepository.list(userId, ongProblemId);
 
     return projectsList;
   }

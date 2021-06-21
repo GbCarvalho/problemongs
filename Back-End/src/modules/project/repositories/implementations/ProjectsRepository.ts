@@ -96,6 +96,9 @@ class ProjectsRepository implements IProjectsRepository {
       });
     }
 
+    console.log(ongProblemId);
+    console.log(userId);
+
     return projects;
   }
 }
