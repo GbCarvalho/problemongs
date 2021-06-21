@@ -6,7 +6,7 @@ Problemongs é uma plataforma na qual ONG's podem anunciar alguns problemas que 
 
 Front-End: 
   + Ir para pasta Front-nd
-  + yarn install
+  + yarn
   + yarn dev
   ``` 
   Observar se o arquivo .env.local possui todas as variáveis necessárias
@@ -15,7 +15,7 @@ Front-End:
 Back-End:
 
   + Ir para pasta Back-End
-  + yarn install
-  + docker-compose up
+  + yarn
+  + docker-compose up -d
   + yarn typeorm migration:run
   
